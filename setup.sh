@@ -45,7 +45,13 @@ install_osx_apps() {
     brew install wget >> $HOME/bootstrap.log 2>&1 || return 1
     brew install vim --override-system-vi >> $HOME/bootstrap.log 2>&1 || return 1
     brew install macvim --override-system-vim --custom-system-icons >> $HOME/bootstrap.log 2>&1 || return 1
-    hh --show-configuration >> ~/.zshrc 
+    hh --show-zsh-configuration >> ~/.zshrc 
+    
+    # Install Python2.7
+    brew install python@2
+    curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+    python get-pip.py
+    pip install --upgrade --force-reinstall ipython
 }
 
 
